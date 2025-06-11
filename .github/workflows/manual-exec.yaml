@@ -19,17 +19,14 @@ jobs:
       - name: Instalando dependencias
         run: npm install
 
-      - name: Instalando Mocha
-        run: npm install -D mocha
+      - name: Instalando Mocha e Mochawesome
+        run: npm install -D mocha mochawesome
 
       - name: Executando os testes unitários
-        run: npx mocha testes/trabalho-final.js
-      
-      - name: Gerar relatório JUnit
-        run: npm run test:junit
-        
-      - name: Carregar relatório de testes
-        uses: actions/upload-artifact@v2
+        run: npx mocha testes/trabalho-final.js --reporter mochawesome
+
+      - name: Upload do relatório
+        uses: actions/upload-artifact@v4
         with:
-          name: mocha-junit-report
-          path: ./test-results/junit.xml
+          name: mochawesome-report
+          path: mochawesome-report
