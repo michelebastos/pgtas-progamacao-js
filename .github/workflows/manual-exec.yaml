@@ -26,4 +26,4 @@ jobs:
         run: npm install -g mocha
 
       - name: Executando os testes unitários
-        run: mocha trabalho-final.js
+        run: mocha ./testes/trabalho-final.js
