@@ -1,0 +1,29 @@
+# CI de nivel 01 - Disparo manual a partir de 1 clique
+
+name: 'Execução Manual'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  testes-unitarios:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Instalando yarn
+        run: npm install -g yarn
+
+      - name: Instalando dependencias
+        run: yarn
+
+      - name: Instalando Mocha
+        run: npm install -g mocha
+
+      - name: Executando os testes unitários
+        run: mocha trabalho-final.js
