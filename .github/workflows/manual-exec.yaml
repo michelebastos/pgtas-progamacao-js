@@ -16,14 +16,11 @@ jobs:
         with:
           node-version: 22.x
 
-      - name: Instalando yarn
-        run: npm install -g yarn
-
       - name: Instalando dependencias
-        run: yarn
+        run: npm install
 
       - name: Instalando Mocha
-        run: npm install -g mocha
+        run: npm install -D mocha
 
       - name: Executando os testes unitários
-        run: mocha ./testes/trabalho-final.js
+        run: npx mocha testes/trabalho-final.js
