@@ -24,3 +24,12 @@ jobs:
 
       - name: Executando os testes unitários
         run: npx mocha testes/trabalho-final.js
+      
+      - name: Gerar relatório JUnit
+        run: npm run test:junit
+        
+      - name: Carregar relatório de testes
+        uses: actions/upload-artifact@v2
+        with:
+          name: mocha-junit-report
+          path: ./test-results/junit.xml
